@@ -1,0 +1,14 @@
+[features]
+seeds = false
+[programs.devnet]
+patreon = "D2cnhPbd5Go1DfbAWWgvn1f6sco4PM28NvFgmgKSr4vJ"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "devnet"
+wallet = "/Users/yashwanth/other-projects/Anchor/patreon/patreon/id.json"
+
+[scripts]
+test = "yarn run mocha -t 1000000 tests/"
