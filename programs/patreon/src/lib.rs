@@ -235,12 +235,6 @@ pub struct RegisterAdminDetails<'info,>{
 
 #[account]
 pub struct VerifyPatreonTokenDetails{
-    // name:String,
-    // description:String,
-    // amount:i64,
-    //mediaURL:String,
-    // PDA:String, //where we are transferring account 2 or more sol
-    // fund_pda_wallet:String,
     owner:Pubkey, //patreonkeypair
     date:String,
     token_address:String, //newly created NFT address
