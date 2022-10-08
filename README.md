@@ -2,6 +2,6 @@
 
 Frontend - https://github.com/BalanaguYashwanth/app
 
-DApp - https://comfy-dolphin-237909.netlify.app/
+DApp - https://cheery-cannoli-d87f60.netlify.app/
 
 Video link - https://youtu.be/XCv0goLFOZA
