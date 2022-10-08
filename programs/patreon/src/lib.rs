@@ -135,15 +135,7 @@ pub mod patreon {
         Ok(())
     }
 
-    pub fn verifytoken(ctx:Context<VerifyPatreonDetails>, owner:Pubkey,date:u64,token_address:String) -> ProgramResult{
-         let verify_details  = &mut ctx.accounts.verify_patreon_token_details;
-         verify_details.owner = owner;
-         verify_details.date=date;
-         verify_details.token_address=token_address;
-        //  verify_details.fund_pda_wallet=fund_pda_wallet;
-         Ok(())
-    }
-
+   
     pub fn verifyalltokens(ctx:Context<VerifyPatreonDetailsAccount>, owner:Pubkey,date:String,token_address:String) -> ProgramResult{
         let verify_details  = &mut ctx.accounts.patreon_token_details;
         verify_details.owner = owner;
@@ -233,33 +225,6 @@ pub struct TransferNft<'info>{
 
 
 #[derive(Accounts)]
-#[instruction(_bump : u8)]
-pub struct Initialisedstatepda<'info> {
-    #[account(
-        init,
-        payer = owner,
-        seeds=[owner.key.as_ref(),deposit_token_account.key().as_ref(),"state".as_ref()],
-        bump,
-        space=200
-    )]
-    statepda: Account<'info, State>,
-    #[account(mut)]
-    pub owner: Signer<'info>,
-    #[account(mut)]
-    pub deposit_token_account: Account<'info, TokenAccount>,
-    pub system_program: Program<'info,System>,
-}
-
-#[derive(Accounts)]
-pub struct VerifyPatreonDetails<'info,>{
-    #[account(init,payer=user,space=9000)]
-    pub verify_patreon_token_details:Account<'info,VerifyPatreonToken>,
-    #[account(mut)]
-    pub user:Signer<'info,>,
-    pub system_program:Program<'info,System>
-}
-
-#[derive(Accounts)]
 pub struct VerifyPatreonDetailsAccount<'info,>{
     #[account(init,payer=user,space=9000)]
     pub patreon_token_details:Account<'info,VerifyPatreonTokenDetails>,
@@ -277,18 +242,7 @@ pub struct RegisterAdminDetails<'info,>{
     pub system_program:Program<'info,System>
 }
 
-#[account]
-pub struct VerifyPatreonToken{
-    // name:String,
-    // description:String,
-    // amount:i64,
-    //mediaURL:String,
-    // PDA:String, //where we are transferring account 2 or more sol
-    // fund_pda_wallet:String,
-    owner:Pubkey, //patreonkeypair
-    date:u64,
-    token_address:String, //newly created NFT address
-}
+
 
 #[account]
 pub struct VerifyPatreonTokenDetails{
