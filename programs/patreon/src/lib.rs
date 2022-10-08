@@ -223,6 +223,23 @@ pub struct TransferNft<'info>{
     pub associated_token_program: Program<'info, associated_token::AssociatedToken>,
 }
 
+#[derive(Accounts)]
+#[instruction(_bump : u8)]
+pub struct Initialisedstatepda<'info> {
+    #[account(
+        init,
+        payer = owner,
+        seeds=[owner.key.as_ref(),deposit_token_account.key().as_ref(),"state".as_ref()],
+        bump,
+        space=200
+    )]
+    statepda: Account<'info, State>,
+    #[account(mut)]
+    pub owner: Signer<'info>,
+    #[account(mut)]
+    pub deposit_token_account: Account<'info, TokenAccount>,
+    pub system_program: Program<'info,System>,
+}
 
 #[derive(Accounts)]
 pub struct VerifyPatreonDetailsAccount<'info,>{
