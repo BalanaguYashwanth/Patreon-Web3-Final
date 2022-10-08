@@ -101,27 +101,6 @@ pub mod patreon {
         )?;
         
 
-        // let transfer_tokens_instruction = transfer(
-        //     &ctx.accounts.mint.key(),
-        //     &ctx.accounts.owner_token_account.key(),
-        //     &ctx.accounts.buyer_token_account.key(),
-        //     &ctx.accounts.buyer_authority.key(),
-        //     &[],
-        //    1
-        // )?;
-
-        // let required_accounts_for_transfer = [
-        //     ctx.accounts.seller.clone(),
-        //     ctx.accounts.buyer.clone(),
-        //     ctx.accounts.seller.clone(),
-        // ];
-
-        // invoke_signed(
-        //     &transfer_tokens_instruction,
-        //     &required_accounts_for_transfer,
-        //     &[ ]
-        // )?;
-
         msg!("NFT transferred successfully.");
         
         msg!("Sale completed successfully!");
@@ -159,14 +138,7 @@ pub mod patreon {
         Ok(())
     }
 
-    // name:String,
-    // description:String,
-    // contents:String,
-    // url:String,
-    // amount:u64,
-    // patreon_id:Pubkey,
-    // owner:Pubkey
-
+   
 }
 
 
